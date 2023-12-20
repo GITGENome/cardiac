@@ -1,0 +1,6 @@
+git status - info status of file
+git add Script-3.sql  - add file (name of file)
+git status check if it changes
+git commit -m "hello" - 
+git push - push everything with status active in git
+git push --set-upstream origin julia_branch - to push into git directory
