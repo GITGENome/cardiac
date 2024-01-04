@@ -1,1 +1,23 @@
+Pas de valeurs manquant.
+Peut-etre il y a un doublon, mais sans id de patint c'est impossible de savoir
 
+Il y a 14 col numerique, la majoritè avec les valeurs vategorique qui étaient transformés/factorizé
+
+Les colone avec les valeur continues:
+  trestbps
+  chol
+  thalach
+  oldpeak
+
+Les valeurs categorique:
+  cp (chest pain): de 0 a 4. Le formateur a dit que c'est la severité de douleur, je lui ne crois pas, car sur le lmplot 
+      la ligne s'approche aux gens malades avec le ca=0
+  fbs (fasting blood sugar): 0 et 1 (normal/pas normal)
+  restecg (ECG resting): 0, 1 et pour 4 persones c'est 2. Juste une persone parmi ceux-ci est malade
+  exang (exercise-induced angine): 0 et 1.
+  slope(change is ST segment slope under exercise): 0, 1, 2 - 1 le plus associe avec la maladie
+  ca(Number of Major Vessels Colored by Fluoroscopy): 0-4, 4 - majorite de gens sont pas malades, tandi que la valeur plus grand associe avec la       maladie
+  thalasemia - me posse le problem, car c'est une maladie genetique et dans la base de donnée il y a enormenet de gens malades. Les chiffre            correspondent a maladie ou ils sont alèatoires?
+
+
+  
