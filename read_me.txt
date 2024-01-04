@@ -37,4 +37,17 @@ Visualisation:
       - 0 oldpeak a grand association avec les sains
       - ca 0 a la correlation avec les sains
 
-  
+                                                            ***
+
+Statistique
+    Normalité
+      il y a quelques variable avec la distribution n'est pas normal: le cholesterol, l'age, thalach (exercise-induced heartbeat), slope.
+      cela peut explique pourquoi il n'y a pas de correlation entre la maladie et le cholesterol
+    test chi2 été utilisé pour éstimer de difference de valeur categoric. Il n'y a pas d'impact de fbs (fasting blood glucose)
+    ANOVA test pour determiner la depandence de maladies et les valerus numirique continues
+
+                                                            ***
+
+PCA
+No utility in decomposer. Le choix de deux composant peut expliquer juste 0.33 de variabilite de data. 
+
