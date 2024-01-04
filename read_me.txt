@@ -3,6 +3,8 @@ Peut-etre il y a un doublon, mais sans id de patint c'est impossible de savoir
 
 Il y a 14 col numerique, la majoritè avec les valeurs vategorique qui étaient transformés/factorizé
 
+                                                            ***
+
 Les colone avec les valeur continues:
   trestbps
   chol
@@ -19,5 +21,20 @@ Les valeurs categorique:
   ca(Number of Major Vessels Colored by Fluoroscopy): 0-4, 4 - majorite de gens sont pas malades, tandi que la valeur plus grand associe avec la       maladie
   thalasemia - me posse le problem, car c'est une maladie genetique et dans la base de donnée il y a enormenet de gens malades. Les chiffre            correspondent a maladie ou ils sont alèatoires?
 
+                                                            ***
+
+Visualisation:
+  boxplot avec malade/pas malade. Le bon difference malade/sain est pour le variable d'age, exang(douleur pendant exercice), 
+      oldpeak, ca (visualisation de vessau de coeur)
+  lmplot (l'éstimation de regression): 
+      - les hommes plus sensibles avec l'age que les femmes
+      - les pression de sang plus hommes le factor de risk plus grand pendant le moynne age
+      - plus haut cholesterol a impact plus grand chez homme
+      - la possibilité de developer frequence cardiac plus haut a très fort correlation avec le risk de maladie diminué
+      - cp a très bizard correlation avec la maladie, IL FAUT LE FAIRE COMME GET DUMMIES! 
+  pairplot
+  distplot - les memes conclutions qu'avec lmplot et plus
+      - 0 oldpeak a grand association avec les sains
+      - ca 0 a la correlation avec les sains
 
   
