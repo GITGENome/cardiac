@@ -32,6 +32,7 @@ Visualisation:
       - plus haut cholesterol a impact plus grand chez homme
       - la possibilité de developer frequence cardiac plus haut a très fort correlation avec le risk de maladie diminué
       - cp a très bizard correlation avec la maladie, IL FAUT LE FAIRE COMME GET DUMMIES! 
+      - restect 0 est plus correle avec le persone pas malade. Le valeur 2 est tres bizzard.
   pairplot
   distplot - les memes conclutions qu'avec lmplot et plus
       - 0 oldpeak a grand association avec les sains
@@ -50,4 +51,49 @@ Statistique
 
 PCA
 No utility in decomposer. Le choix de deux composant peut expliquer juste 0.33 de variabilite de data. 
+
+                                                            ***
+Machine learning
+
+1. The library of lazypredict was used to chose the models with the best balanced score. Independed of the lazypredict choice
+  I always test MPL, SVC, RandomForest
+
+2. Before the model improvement whole dataset was splited in X, y, X_apres, y_apres. This small franction of data is supposed to 
+  be used after model is complet
+
+3. For each model the best scaler was selected
+
+4. For each combination of scaler+model ML the search of the best hyperparameters was done
+
+5. The models with the lowest false negative results were chosen to be used in staking model ensemble
+
+6. The search of the best final estimator for the model ensemble was done. The LogisticRegression was chosen.
+  LogisticRegression as a final estimator was also tested with changed weight of classes to eliminate false negative results
+
+7. Final model was tested with X_apres, y_apres. The score is 0.89
+
+8. Final model was fitted with the whole dataset and was dumped to use in application
+
+                                                            ***
+Adjustments
+
+1. Exclution of cp (chest pain) from final model
+When model was tested in application it was imposible to understant connection of chest pain. According to client the value of chest pain
+correspond to the pain level, but with our visuals we cannot see the correlation. 0 - has a strong correlation with disease, while 1, 2 - is not
+3 - has a strange impact. 
+However presence of chest pain is a strong indicator of heart disease it was excluded, because it's not a reason of disease but more a consequences and cannot be used as an EARLY factor of disease identification
+
+2. False negetive results.
+After research of scaler and best hyperparameters models where it was possible to change the weight of class was tested to eliminate 
+false negative result. This feature is not used in final model because client didn't give us defenitive information about ill and healthy persone. It was our guesse. Also it was impossible to use model with change class weight in model ensemble. 
+Model ensemble allows to increase the score better and eliminate more false negative that just changing of class weight
+
+3. Qualitive/quantitive feature. 
+Some feature which was definied as categorical (cp, fbs, sex, slope, resteg, exang, ca, thalasemmia) were transformed into object columns 
+in X to be treated with OneHotEncoder rather than scaler adapted for quantitive values.
+This was excluded in final model because it had no impact on model performance, score and number of false negative results were the same. 
+However it complicated model functioning/training because some rare classes were hard to include in train/test split
+I think those rare classes are outliers, but according to our client it is not, so we decided to keep it and treat all values as quantitive
+
+   
 
